@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* 1 rem = 10px. Browser default font-size is 16px / 10px = 62.5%
+  Percentage allows user to change default font-size in browser */
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-image: linear-gradient(to top, #8f3e51, #3a3352);
+}

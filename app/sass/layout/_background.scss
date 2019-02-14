@@ -1,0 +1,33 @@
+#background-canvas {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+}
+
+.mars {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  height: 20rem;
+  width: 100%;
+  user-select: none;
+}
+
+.moon {
+  position: absolute;
+  top: 5rem;
+  right: 12rem;
+  height: 10rem;
+  width: 10rem;
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

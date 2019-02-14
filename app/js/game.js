@@ -2,6 +2,8 @@
 function startGame() {
   const canvas = document.getElementById("game-canvas"),
     c = canvas.getContext("2d");
+  canvas.draggable = false;
+  document.getElementById("game-button").style.visibility = "hidden";
   const innerWidth = window.innerWidth;
   const innerHeight = window.innerHeight;
   canvas.width = innerWidth;
@@ -35,7 +37,7 @@ function startGame() {
     this.num = num;
     this.index = 0;
 
-    for (var i = 0; i < num; i++) {
+    for (let i = 0; i < num; i++) {
       this.channels.push(new Channel(audio_uri));
     }
   }
@@ -64,7 +66,7 @@ function startGame() {
     this.num = num;
     this.index = 0;
 
-    for (var i = 0; i < num; i++) {
+    for (let i = 0; i < num; i++) {
       this.channels.push(new Channel(audio_uri));
     }
   }
@@ -107,7 +109,7 @@ function startGame() {
     height: player_height,
     x: innerWidth / 2 - player_width / 2,
     y: innerHeight - (player_height + 20),
-    life: 5,
+    life: 200,
     draw: function() {
       if (this.x <= 0) {
         this.x = 0;
@@ -171,8 +173,6 @@ function startGame() {
       }
       this.draw();
     };
-
-    console.log(explosionsArray[this.id]);
 
     this.delete = function() {
       delete explosionsArray[this.id];
@@ -240,6 +240,7 @@ function startGame() {
       }
 
       if (this.y > innerHeight + this.height) {
+        score -= 50;
         this.delete();
       }
 
@@ -270,9 +271,9 @@ function startGame() {
   // BULLETS SETUP
   let bulletsArray = [],
     bulletIndex = 0,
-    bullet_width = 8,
-    bullet_height = 10,
-    speed = 15;
+    bullet_width = 3,
+    bullet_height = 13,
+    speed = 10;
 
   //CREATE BULLET OBJECT
   function bullet(x, y, width, height, speed) {
@@ -300,9 +301,8 @@ function startGame() {
     this.draw = function() {
       c.beginPath();
       c.rect(this.x, this.y, this.width, this.height);
-      c.fillStyle = "#fff";
+      c.fillStyle = "yellow";
       c.fill();
-      c.stroke();
     };
   }
 
@@ -337,13 +337,18 @@ function startGame() {
       });
     });
 
+    // DECREASE PLAYER LIFE AND DELETE ENEMY IF IT COLIDES WITH PLAYER
     enemyArray.forEach(function(enemy) {
       if (collides(player, enemy)) {
-        player.life += -1;
+        player.life += -20;
         enemy.delete();
       }
     });
   }
+
+  // DELAY END GAME (NEED BETTER SOLUTION)
+  let delay = 0;
+  let maxDelay = 2;
 
   // ANIMATION LOOP
 
@@ -352,14 +357,21 @@ function startGame() {
     c.clearRect(0, 0, canvas.width, canvas.height);
 
     // SCORE
-    c.font = "18px MontSerrat";
+    c.font = "14px MontSerrat";
     c.fillStyle = "#fff";
-    c.fillText("SCORE: " + score, 10, 22);
+    c.fillText(score + " POINTS", 10, 22);
 
     // PLAYER LIFE
-    c.font = "18px MontSerrat";
-    c.fillStyle = "#fff";
-    c.fillText("Life: " + player.life, innerWidth - 108, 22);
+    // RED REC
+    c.beginPath();
+    c.rect(20, 20, 150, 30);
+    c.fillStyle = "red";
+    c.fillRect(10, 30, 200, 20);
+    // YELLOW REC
+    c.beginPath();
+    c.rect(20, 20, 150, 30);
+    c.fillStyle = "yellow";
+    c.fillRect(10, 30, player.life, 20);
 
     // DRAW PLAYER
     player.draw();
@@ -388,11 +400,15 @@ function startGame() {
     // DETECT COLLISIONS
     handleCollisions();
 
-    if (player.life <= 0) {
-      cancelAnimationFrame(animation);
+    // END GAME (NEED BETTER SOLUTION FOR DELAY)
+    if (player.life === 0) {
+      delay++;
+    }
+    if (delay === maxDelay) {
       console.log("You Lose");
       music.pause();
       paused = true;
+      cancelAnimationFrame(animation);
     }
   }
   animate();

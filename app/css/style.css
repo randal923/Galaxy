@@ -1,33 +1,54 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+#game-canvas {
+  display: none;
+  z-index: 1000;
+  position: absolute; }
 
-#sky {
+#game-button {
   position: absolute;
-  z-index: -1;
-  background: -webkit-linear-gradient(#00111e 30%, #033d5e);
-  background: -moz-linear-gradient(#00111e 30%, #033d5e);
-  background: -o-linear-gradient(#00111e 30%, #033d5e);
-  background: linear-gradient(#00111e 30%, #033d5e);
-}
+  top: 0;
+  left: 0; }
 
-#explosion {
-  border: 1px solid white;
-}
+#background-canvas {
+  display: block;
+  position: absolute;
+  overflow: hidden; }
+
+.mars {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  height: 20rem;
+  width: 100%;
+  user-select: none; }
 
 .moon {
-  height: 150px;
-  width: 150px;
-  animation: moon-spin infinite 20s linear;
-}
+  position: absolute;
+  top: 5rem;
+  right: 12rem;
+  height: 10rem;
+  width: 10rem;
+  animation: spin 20s linear infinite; }
 
-@keyframes moon-spin {
+@keyframes spin {
   from {
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
   to {
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  /* 1 rem = 10px. Browser default font-size is 16px / 10px = 62.5%
+  Percentage allows user to change default font-size in browser */
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-image: linear-gradient(to top, #8f3e51, #3a3352); }
