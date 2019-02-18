@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700" rel="stylesheet">
     <link
       rel="stylesheet"
       type="text/css"
@@ -13,11 +14,16 @@
     />
   </head>
   <body>
-      <canvas id="background-canvas"> </canvas>
     <main>
-        <button type="button" onclick="startGame()" id="game-button">
-          FUN BUTTON
-        </button>
+        <section class="home-section">
+            <div class="typing-effect">
+                <h1 class="typing-effect__h1" id="typing-effect__h1"></h1>
+                <button type="button" onclick="startGame()" class="typing-effect__game-button" id="typing-effect__game-button">
+                    FUN BUTTON
+                  </button>
+            </div>
+          </section>
+        <canvas id="background-canvas"> </canvas>
         <canvas id="game-canvas"> </canvas>
         <img
           src="img/mars-1.svg"
@@ -30,5 +36,6 @@
     </main>
     <script src="./js/game.js"></script>
     <script src="./js/background.js"></script>
+    <script src="./js/typing.js"></script>
   </body>
 </html>
