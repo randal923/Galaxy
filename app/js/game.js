@@ -3,7 +3,9 @@ function startGame() {
   const canvas = document.getElementById("game-canvas"),
     c = canvas.getContext("2d");
   canvas.draggable = false;
-  document.getElementById("game-button").style.visibility = "hidden";
+  document.getElementById("home-section__game-button").style.visibility =
+    "hidden";
+  document.getElementById("home-section__h1").style.visibility = "hidden";
   const innerWidth = window.innerWidth;
   const innerHeight = window.innerHeight;
   canvas.width = innerWidth;

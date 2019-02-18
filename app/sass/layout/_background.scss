@@ -1,7 +1,10 @@
 #background-canvas {
   display: block;
   position: absolute;
+  top: 0;
+  left: 0;
   overflow: hidden;
+  z-index: -2;
 }
 
 .mars {
@@ -12,6 +15,7 @@
   height: 20rem;
   width: 100%;
   user-select: none;
+  z-index: -1;
 }
 
 .moon {
@@ -21,6 +25,7 @@
   height: 10rem;
   width: 10rem;
   animation: spin 20s linear infinite;
+  z-index: -1;
 }
 
 @keyframes spin {
