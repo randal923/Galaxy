@@ -8,6 +8,7 @@
 .home-section {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center; }
 
@@ -68,47 +69,89 @@ body {
 .typing-effect {
   height: 15rem;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  position: relative;
+  bottom: 3rem; }
   .typing-effect__h3 {
     font-size: 2.5rem;
     line-height: 3rem;
     font-weight: 700;
-    letter-spacing: -1.5px; }
+    letter-spacing: -1.5px;
+    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6); }
   .typing-effect__h1 {
     color: #ededed;
     font-size: 2rem;
     line-height: 3rem;
-    font-weight: 500; }
+    font-weight: 500;
+    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6); }
   .typing-effect__h2 {
     color: #ededed;
     font-size: 2rem;
     line-height: 3rem;
-    font-weight: 500; }
+    font-weight: 500;
+    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6); }
     .typing-effect__h2--git-hub {
       text-decoration: none;
       color: white;
       font-weight: 700; }
+      .typing-effect__h2--git-hub:hover, .typing-effect__h2--git-hub:focus {
+        color: #ff5068; }
   .typing-effect__p {
     color: #ededed;
     font-size: 2rem;
     line-height: 3rem;
-    font-weight: 500; }
+    font-weight: 500;
+    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6); }
     .typing-effect__p--portfolio {
       text-decoration: none;
       color: white;
       font-weight: 700; }
+      .typing-effect__p--portfolio:hover, .typing-effect__p--portfolio:focus {
+        color: #ff5068; }
   .typing-effect__address {
     color: #ededed;
     font-size: 2rem;
     line-height: 1.9rem;
-    font-weight: 500; }
+    font-weight: 500;
+    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6); }
     .typing-effect__address--email-address {
       text-decoration: none;
       color: white;
       font-weight: 700; }
+      .typing-effect__address--email-address:hover, .typing-effect__address--email-address:focus {
+        color: #ff5068; }
   .typing-effect__game-button {
-    height: 2rem;
-    visibility: hidden; }
+    border: none;
+    cursor: pointer;
+    padding: 2.5rem 8rem;
+    display: inline-block;
+    margin: 1.5rem 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    transition: all 0.3s;
+    border-radius: 5px;
+    background: #cb4e4e;
+    color: #fff;
+    box-shadow: 0 6px #ab3c3c;
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none; }
+    .typing-effect__game-button:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s; }
+    .typing-effect__game-button:hover {
+      box-shadow: 0 4px #ab3c3c;
+      top: 2px; }
+    .typing-effect__game-button:active {
+      box-shadow: 0 0 #ab3c3c;
+      top: 6px; }
 
 @keyframes blink-caret {
   0% {
