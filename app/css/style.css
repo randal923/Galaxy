@@ -3,37 +3,13 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1; }
+  z-index: 2; }
 
-.typing-effect {
-  display: flex;
-  flex-direction: column;
-  line-height: 3rem;
+.home-section {
   height: 100vh;
-  justify-content: center; }
-  .typing-effect__h1 {
-    font-size: 2.3rem;
-    font-weight: 700;
-    letter-spacing: -0.7px;
-    align-self: center;
-    display: inline-block;
-    height: 20rem;
-    width: 60rem; }
-    .typing-effect__h1::after {
-      content: "_";
-      font-size: 1.8rem;
-      padding-top: 0.8rem;
-      font-weight: 700;
-      animation: blink-caret 0.6s infinite; }
-  .typing-effect__game-button {
-    height: 2rem;
-    visibility: hidden; }
-
-@keyframes blink-caret {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 #background-canvas {
   display: block;
@@ -88,3 +64,64 @@ body {
   font-family: "Josefin Slab", serif;
   line-height: 1.8rem;
   color: white; }
+
+.typing-effect {
+  height: 15rem;
+  width: 100%;
+  text-align: center; }
+  .typing-effect__h3 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    font-weight: 700;
+    letter-spacing: -1.5px; }
+  .typing-effect__h1 {
+    color: #ededed;
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 500; }
+  .typing-effect__h2 {
+    color: #ededed;
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 500; }
+    .typing-effect__h2--git-hub {
+      text-decoration: none;
+      color: white;
+      font-weight: 700; }
+  .typing-effect__p {
+    color: #ededed;
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 500; }
+    .typing-effect__p--portfolio {
+      text-decoration: none;
+      color: white;
+      font-weight: 700; }
+  .typing-effect__address {
+    color: #ededed;
+    font-size: 2rem;
+    line-height: 1.9rem;
+    font-weight: 500; }
+    .typing-effect__address--email-address {
+      text-decoration: none;
+      color: white;
+      font-weight: 700; }
+  .typing-effect__game-button {
+    height: 2rem;
+    visibility: hidden; }
+
+@keyframes blink-caret {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+/*
+&::after {
+      content: "_";
+      font-size: 1.8rem;
+      padding-top: 0.8rem;
+      font-weight: 700;
+      animation: blink-caret 0.6s infinite;
+    }
+    */
