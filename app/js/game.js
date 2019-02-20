@@ -1,26 +1,50 @@
+function gameTimeOut() {
+  let gameTimer = 5;
+  const gameButton = document.querySelector(".typing-effect__game-button");
+
+  // COUNT DOWN
+  function yourFunction() {
+    if (gameTimer > 0) {
+      gameButton.innerHTML = "your game will begin in " + gameTimer;
+      gameTimer--;
+    } else if (gameTimer === 0) {
+      gameButton.innerHTML = "your game will begin in " + 0;
+    }
+
+    setTimeout(yourFunction, 1000);
+  }
+
+  yourFunction();
+
+  //START GAME IN X SECONDS
+  setTimeout(function() {
+    startGame();
+  }, 6000);
+}
+
 // START GAME
 function startGame() {
-  const canvas = document.getElementById("game-canvas"),
+  const canvas = document.querySelector("#game-canvas"),
     c = canvas.getContext("2d");
   canvas.draggable = false;
-  document.getElementById("home-section__game-button").style.visibility =
+  document.querySelector(".typing-effect__game-button").style.visibility =
     "hidden";
-  document.getElementById("home-section__h1").style.visibility = "hidden";
+  document.querySelector(".home-section").style.visibility = "hidden";
   const innerWidth = window.innerWidth;
   const innerHeight = window.innerHeight;
   canvas.width = innerWidth;
   canvas.height = innerHeight;
-  document.getElementById("game-canvas").style.display = "block";
+  document.querySelector("#game-canvas").style.display = "block";
 
   // AUDIO
 
   // MUSIC
   const music = new Audio();
   music.src = "./audio/racing-car.mp3";
-  music.volume = 0.2;
+  music.volume = 0.4;
   music.play();
   music.loop = true;
-  music.controls = true;
+  console.log("music " + music);
 
   // GUN
   // creating channell to store many instances of the audio
@@ -51,6 +75,10 @@ function startGame() {
 
   const pew = new Switcher("audio/pew.mp3", 20);
 
+  pew.channels.forEach(function(pew) {
+    pew.resource.volume = 0.5;
+    console.log(pew.resource.volume);
+  });
   // EXPLOSION
   // creating channell to store many instances of the audio
   function Channel(audio_uri) {
@@ -80,6 +108,10 @@ function startGame() {
 
   const explosion = new Switcher("audio/explosion.mp3", 5);
 
+  explosion.channels.forEach(function(explosion) {
+    explosion.resource.volume = 0.5;
+    console.log(explosion.resource.volume);
+  });
   // VARIABLES
   let score = 0,
     lastTime = 0;

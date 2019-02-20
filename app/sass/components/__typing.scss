@@ -2,12 +2,15 @@
   height: 15rem;
   width: 100%;
   text-align: center;
+  position: relative;
+  bottom: 3rem;
 
   &__h3 {
     font-size: 2.5rem;
     line-height: 3rem;
     font-weight: 700;
     letter-spacing: -1.5px;
+    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
   }
 
   &__h1 {
@@ -15,6 +18,8 @@
     font-size: 2rem;
     line-height: 3rem;
     font-weight: 500;
+
+    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
   }
 
   &__h2 {
@@ -22,14 +27,16 @@
     font-size: 2rem;
     line-height: 3rem;
     font-weight: 500;
+    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
 
     &--git-hub {
       text-decoration: none;
       color: white;
       font-weight: 700;
-    }
-
-    &::before {
+      &:hover,
+      &:focus {
+        color: #ff5068;
+      }
     }
   }
 
@@ -38,11 +45,16 @@
     font-size: 2rem;
     line-height: 3rem;
     font-weight: 500;
+    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
 
     &--portfolio {
       text-decoration: none;
       color: white;
       font-weight: 700;
+      &:hover,
+      &:focus {
+        color: #ff5068;
+      }
     }
   }
 
@@ -51,17 +63,58 @@
     font-size: 2rem;
     line-height: 1.9rem;
     font-weight: 500;
+    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
 
     &--email-address {
       text-decoration: none;
       color: white;
       font-weight: 700;
+      &:hover,
+      &:focus {
+        color: #ff5068;
+      }
     }
   }
 
   &__game-button {
-    height: 2rem;
-    visibility: hidden;
+    border: none;
+    cursor: pointer;
+    padding: 2.5rem 8rem;
+    display: inline-block;
+    margin: 1.5rem 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    transition: all 0.3s;
+
+    border-radius: 5px;
+    background: #cb4e4e;
+    color: #fff;
+    box-shadow: 0 6px #ab3c3c;
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      box-shadow: 0 4px #ab3c3c;
+      top: 2px;
+    }
+
+    &:active {
+      box-shadow: 0 0 #ab3c3c;
+      top: 6px;
+    }
   }
 }
 
