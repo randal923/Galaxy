@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700" rel="stylesheet">
     <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       type="text/css"
       media="screen"
@@ -31,14 +35,36 @@
         <canvas id="background-canvas"> </canvas>
         <canvas id="game-canvas"> </canvas>
         <img
-          src="img/mars-1.svg"
+          src="css/img/mars-1.svg"
           alt="mars"
           class="mars"
           draggable="false"
         />
-        <img src="img/moon.svg" alt="moon" class="moon" draggable="false"/>
+        <img src="css/img/moon.svg" alt="moon" class="moon" draggable="false"/>
       </div>
     </main>
+    <div class="popup">
+      <div class="popup__container">
+        <h3 class="popup__container--points" key="popup-content"></h3>
+        <ul class="popup__container--content" key="popup-content">
+          <li>
+              <span class="popup__container--content-title time"></span>
+              <span class="popup__container--content-statistic time-number"></span>
+          </li>
+          <li>
+            <span class="popup__container--content-title shots"></span>
+            <span class="popup__container--content-statistic shots-number"></span>
+          </li>
+          <li>
+            <span class="popup__container--content-title accuracy"></span>
+            <span class="popup__container--content-statistic accuracy-number"></span>
+          </li>
+        </ul>
+        <button onclick="playAgain()" class="popup__play-again">
+            PLAY AGAIN
+        </button>
+      </div>
+    </div>
     <script src="./js/game.js"></script>
     <script src="./js/background.js"></script>
     <script src="./js/typing.js"></script>
