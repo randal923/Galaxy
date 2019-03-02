@@ -4,6 +4,7 @@
   text-align: center;
   position: relative;
   bottom: 3rem;
+  font-family: "Josefin Slab";
 
   &__h3 {
     font-size: 2.5rem;
@@ -28,16 +29,6 @@
     line-height: 3rem;
     font-weight: 500;
     text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
-
-    &--git-hub {
-      text-decoration: none;
-      color: white;
-      font-weight: 700;
-      &:hover,
-      &:focus {
-        color: #ff5068;
-      }
-    }
   }
 
   &__p {
@@ -46,16 +37,6 @@
     line-height: 3rem;
     font-weight: 500;
     text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
-
-    &--portfolio {
-      text-decoration: none;
-      color: white;
-      font-weight: 700;
-      &:hover,
-      &:focus {
-        color: #ff5068;
-      }
-    }
   }
 
   &__address {
@@ -64,15 +45,17 @@
     line-height: 1.9rem;
     font-weight: 500;
     text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
+  }
 
-    &--email-address {
-      text-decoration: none;
-      color: white;
-      font-weight: 700;
-      &:hover,
-      &:focus {
-        color: #ff5068;
-      }
+  &__social {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    transition: all 0.3s;
+
+    &:hover,
+    &:focus {
+      color: #fd5d73;
     }
   }
 
@@ -89,10 +72,10 @@
     position: relative;
     transition: all 0.3s;
 
-    border-radius: 5px;
+    border-radius: 0.5rem;
     background: #cb4e4e;
     color: #fff;
-    box-shadow: 0 6px #ab3c3c;
+    box-shadow: 0 0.6rem #ab3c3c;
     -webkit-transition: none;
     -moz-transition: none;
     transition: none;
@@ -107,13 +90,13 @@
     }
 
     &:hover {
-      box-shadow: 0 4px #ab3c3c;
-      top: 2px;
+      box-shadow: 0 0.4rem #ab3c3c;
+      top: 0.2rem;
     }
 
     &:active {
       box-shadow: 0 0 #ab3c3c;
-      top: 6px;
+      top: 0.6rem;
     }
   }
 }

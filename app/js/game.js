@@ -1,50 +1,93 @@
 function gameTimeOut() {
-  let gameTimer = 5;
+  let gameTimer = 3;
   const gameButton = document.querySelector(".typing-effect__game-button");
-
+  gameButton.disabled = true;
   // COUNT DOWN
-  function yourFunction() {
+  function countDown() {
     if (gameTimer > 0) {
-      gameButton.innerHTML = "your game will begin in " + gameTimer;
+      gameButton.innerHTML = "game will begin in " + gameTimer;
       gameTimer--;
     } else if (gameTimer === 0) {
-      gameButton.innerHTML = "your game will begin in " + 0;
+      return (gameButton.innerHTML = "game will begin in " + 0);
     }
 
-    setTimeout(yourFunction, 1000);
+    setTimeout(countDown, 1000);
   }
 
-  yourFunction();
+  countDown();
 
   //START GAME IN X SECONDS
   setTimeout(function() {
     startGame();
-  }, 6000);
+  }, 4000);
+}
+
+// PLAY AGAIN
+function playAgain() {
+  let gameTimer = 3;
+  const gameButton = document.querySelector(".popup__play-again");
+  const popUp = document.querySelector(".popup");
+  const popupContent = document.querySelector(".popup__container--content");
+  const points = document.querySelector(".popup__container--points");
+  gameButton.disabled = true;
+
+  // COUNT DOWN
+  function countDown() {
+    if (gameTimer > 0) {
+      gameButton.innerHTML = "game will begin in " + gameTimer;
+      gameTimer--;
+    } else if (gameTimer === 0) {
+      return (gameButton.innerHTML = "game will begin in " + 0);
+    }
+
+    setTimeout(countDown, 1000);
+  }
+
+  countDown();
+
+  //START GAME IN X SECONDS
+  setTimeout(function() {
+    gameButton.innerHTML = "PLAY AGAIN";
+    gameButton.disabled = false;
+    gameButton.style.display = "none";
+    popUp.style.display = "none";
+    popupContent.style.display = "none";
+    points.style.display = "none";
+    startGame();
+  }, 4000);
 }
 
 // START GAME
 function startGame() {
   const canvas = document.querySelector("#game-canvas"),
     c = canvas.getContext("2d");
+
+  // CANVAS STYLING
+  canvas.style.cursor = "none";
   canvas.draggable = false;
-  document.querySelector(".typing-effect__game-button").style.visibility =
-    "hidden";
-  document.querySelector(".home-section").style.visibility = "hidden";
+  document.querySelector(".typing-effect__game-button").style.display = "none";
+  document.querySelector(".home-section").style.display = "none";
+  document.querySelector("#game-canvas").style.display = "block";
+
+  // CANVAS DIMENSIONS
   const innerWidth = window.innerWidth;
   const innerHeight = window.innerHeight;
   canvas.width = innerWidth;
   canvas.height = innerHeight;
-  document.querySelector("#game-canvas").style.display = "block";
 
   // AUDIO
+
+  // GAME OVER
+  const gameOver = new Audio();
+  gameOver.src = "./audio/game-over.mp3";
+  gameOver.volume = 0.7;
 
   // MUSIC
   const music = new Audio();
   music.src = "./audio/racing-car.mp3";
-  music.volume = 0.4;
+  music.volume = 0;
   music.play();
   music.loop = true;
-  console.log("music " + music);
 
   // GUN
   // creating channell to store many instances of the audio
@@ -77,7 +120,6 @@ function startGame() {
 
   pew.channels.forEach(function(pew) {
     pew.resource.volume = 0.5;
-    console.log(pew.resource.volume);
   });
   // EXPLOSION
   // creating channell to store many instances of the audio
@@ -110,12 +152,7 @@ function startGame() {
 
   explosion.channels.forEach(function(explosion) {
     explosion.resource.volume = 0.5;
-    console.log(explosion.resource.volume);
   });
-  // VARIABLES
-  let score = 0,
-    lastTime = 0;
-  paused = false;
 
   // KEYS EVENT LISTENERS
   addEventListener("mouseup", function() {
@@ -130,20 +167,30 @@ function startGame() {
     player.x = event.clientX;
   });
 
+  // VARIABLES
+  let score = 0,
+    lastTime = 0;
+  paused = false;
+
   // PLAYER SETUP
-  let player = {},
-    player_width = 90,
+  let player_width = 90,
     player_height = 95,
     player_img = new Image();
-  player_img.src = "img/ship.svg";
+  player_img.src = "css/img/ship.svg";
 
   // CREATE PLAYER
-  player = {
+  let player = {
     width: player_width,
     height: player_height,
-    x: innerWidth / 2 - player_width / 2,
+    x: innerWidth - player_width,
     y: innerHeight - (player_height + 20),
     life: 200,
+    xAdjust: this.width * 0.5,
+    yAdjust: this.height * 0.5,
+    update: function() {
+      const maxMove = innerHeight / 4;
+      if (this.y < maxMove) this.y += 1;
+    },
     draw: function() {
       if (this.x <= 0) {
         this.x = 0;
@@ -158,6 +205,7 @@ function startGame() {
       }
 
       c.drawImage(player_img, this.x, this.y, this.width, this.height);
+      this.update();
     }
   };
 
@@ -166,7 +214,7 @@ function startGame() {
   //SETUP
   let explosionIndex = 0;
 
-  const explosionsArray = [];
+  let explosionsArray = [];
 
   function explosionGif(x, y) {
     this.cols = 10;
@@ -174,7 +222,7 @@ function startGame() {
 
     // get img
     this.img = new Image();
-    this.img.src = "img/explosion-sheet.png";
+    this.img.src = "css/img/explosion-sheet.png";
 
     // Position where the frame will be drawn
     this.x = x;
@@ -238,7 +286,7 @@ function startGame() {
     enemy_height = 50,
     enemy_timer = 500,
     enemy_img = new Image();
-  enemy_img.src = "img/ufo.svg";
+  enemy_img.src = "css/img/ufo.svg";
 
   // CREATE ENEMY OBJECT
   function enemy(x, y, dx, dy, enemy_img, enemy_width, enemy_height, rotation) {
@@ -307,7 +355,8 @@ function startGame() {
     bulletIndex = 0,
     bullet_width = 3,
     bullet_height = 13,
-    speed = 10;
+    speed = 10,
+    shotsFired = 0;
 
   //CREATE BULLET OBJECT
   function bullet(x, y, width, height, speed) {
@@ -345,6 +394,7 @@ function startGame() {
     const x = player.x + player.width / 2 - bullet_width / 2;
     const y = player.y;
     new bullet(x, y, bullet_width, bullet_height, speed);
+    shotsFired++;
   }
 
   // COLLISION FUNCTION
@@ -358,6 +408,7 @@ function startGame() {
   }
 
   // DETECT COLLISION
+  let hitNumber = 0;
   function handleCollisions() {
     bulletsArray.forEach(function(bullet) {
       enemyArray.forEach(function(enemy) {
@@ -367,6 +418,7 @@ function startGame() {
           enemy.delete();
           explosion.play();
           score += 10;
+          hitNumber++;
         }
       });
     });
@@ -380,12 +432,45 @@ function startGame() {
     });
   }
 
-  // DELAY END GAME (NEED BETTER SOLUTION)
+  // DELAY FOR HEALTH TO BECOME 0 AND BE DRAWN ON CANVAS (NEED BETTER SOLUTION)
   let delay = 0;
   let maxDelay = 2;
 
-  // ANIMATION LOOP
+  // POP UP FOR END GAME AND CONTROLS
+  const mainContainer = document.querySelector(".main-container");
+  const popUp = document.querySelector(".popup");
+  const playAgain = document.querySelector(".popup__play-again");
 
+  // POP UP CONTENT
+  const popupContent = document.querySelectorAll('*[key="popup-content"]');
+
+  const popupPoints = document.querySelector(".popup__container--points");
+
+  // TIME
+  const timeText = document.querySelector(".time");
+  const timeNumber = document.querySelector(".time-number");
+
+  // SHOTS
+  const shotsText = document.querySelector(".shots");
+  const shotsNumber = document.querySelector(".shots-number");
+
+  // ACCURACY
+  const accuracyText = document.querySelector(".accuracy");
+  const accuracyNumber = document.querySelector(".accuracy-number");
+
+  // POP UP CLOCK
+  let minutes = 0;
+  let seconds = 0;
+  setInterval(function() {
+    if (seconds === 60) {
+      minutes++;
+      seconds = 0;
+    } else if (seconds < 60 && paused === false) {
+      seconds++;
+    }
+  }, 1000);
+
+  // ANIMATION LOOP
   function animate(currentTime) {
     const animation = requestAnimationFrame(animate);
     c.clearRect(0, 0, canvas.width, canvas.height);
@@ -394,6 +479,19 @@ function startGame() {
     c.font = "14px MontSerrat";
     c.fillStyle = "#fff";
     c.fillText(score + " POINTS", 10, 22);
+
+    popupPoints.innerHTML = score + " points";
+
+    timeText.innerHTML = "Time";
+    timeNumber.innerHTML = minutes + "m" + " : " + seconds + "s";
+
+    shotsText.innerHTML = "Shots";
+    shotsNumber.innerHTML = shotsFired;
+
+    let accuracy = Math.round((hitNumber / shotsFired) * 100) || 0;
+
+    accuracyText.innerHTML = "Accuracy";
+    accuracyNumber.innerHTML = accuracy + " %";
 
     // PLAYER LIFE
     // RED REC
@@ -439,10 +537,23 @@ function startGame() {
       delay++;
     }
     if (delay === maxDelay) {
-      console.log("You Lose");
       music.pause();
+      gameOver.play();
       paused = true;
       cancelAnimationFrame(animation);
+      explosionsArray = [];
+      enemyArray = [];
+      bulletsArray = [];
+      player = {};
+      popUp.style.display = "flex";
+      playAgain.style.display = "none";
+      canvas.style.cursor = "default";
+      setTimeout(function() {
+        popupContent.forEach(function(element) {
+          element.style.display = "block";
+        });
+        playAgain.style.display = "block";
+      }, 1000);
     }
   }
   animate();

@@ -1,0 +1,125 @@
+.popup {
+  height: 100vh;
+  width: 100%;
+  display: none;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+
+  z-index: 3;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color: #000000, $alpha: 0.2);
+
+  &__container {
+    height: 0.1rem;
+    width: 0;
+    animation: popupWidth 0.5s 1 normal linear forwards 0s,
+      popupHeight 0.5s 1 normal linear forwards 0.5s;
+    background-repeat: no-repeat;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(img/popup.svg);
+    z-index: 3;
+
+    &--points {
+      display: none;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 1px 1px black;
+      color: #ff9292;
+    }
+
+    &--content {
+      height: 100%;
+      width: 100%;
+      display: none;
+      font-size: 1.4rem;
+      font-weight: 400;
+      text-shadow: 1px 1px black;
+
+      & li {
+        display: flex;
+        margin-bottom: 1.5rem;
+      }
+
+      & li &-title {
+        order: 1;
+        text-transform: uppercase;
+      }
+
+      & li &-statistic {
+        order: 3;
+        font-size: 1.8rem;
+        color: #ff9292;
+        font-weight: 700;
+      }
+
+      & li::after {
+        content: "";
+        border-bottom: 1px dotted;
+        flex-grow: 1;
+        order: 2;
+      }
+    }
+  }
+
+  &__play-again {
+    border: none;
+    cursor: pointer;
+    padding: 2.5rem 8rem;
+    display: inline-block;
+    margin: 2rem 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    transition: all 0.3s;
+
+    border-radius: 0.5rem;
+    background: #cb4e4e;
+    color: #fff;
+    box-shadow: 0 0.6rem #ab3c3c;
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+    z-index: 3;
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      box-shadow: 0 0.4rem #ab3c3c;
+      top: 0.2rem;
+    }
+
+    &:active {
+      box-shadow: 0 0 #ab3c3c;
+      top: 0.6rem;
+    }
+  }
+}
+
+@keyframes popupWidth {
+  to {
+    width: 47.5rem;
+  }
+}
+
+@keyframes popupHeight {
+  to {
+    height: 35rem;
+    padding: 2.2rem;
+  }
+}
