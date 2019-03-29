@@ -1,7 +1,14 @@
+const gameButton = document.querySelector(".typing-effect__game-button");
+gameButton.addEventListener("click", gameTimeOut);
+
+const plagaAgainButton = document.querySelector(".popup__play-again");
+plagaAgainButton.addEventListener("click", playAgain);
+
 function gameTimeOut() {
   let gameTimer = 3;
   const gameButton = document.querySelector(".typing-effect__game-button");
   gameButton.disabled = true;
+
   // COUNT DOWN
   function countDown() {
     if (gameTimer > 0) {
@@ -79,13 +86,15 @@ function startGame() {
 
   // GAME OVER
   const gameOver = new Audio();
-  gameOver.src = "./audio/game-over.mp3";
+  gameOver.src =
+    "https://firebasestorage.googleapis.com/v0/b/galaxy-d7f5a.appspot.com/o/game-over.mp3?alt=media&token=e060b508-f5ea-4fdf-8d1f-c31edbe78953";
   gameOver.volume = 0.7;
 
   // MUSIC
   const music = new Audio();
-  music.src = "./audio/racing-car.mp3";
-  music.volume = 0;
+  music.src =
+    "https://firebasestorage.googleapis.com/v0/b/galaxy-d7f5a.appspot.com/o/racing-car.mp3?alt=media&token=19a83c23-cfbf-4ffc-ba50-4a2768d24e65";
+  music.volume = 0.5;
   music.play();
   music.loop = true;
 
@@ -116,7 +125,10 @@ function startGame() {
     this.index = this.index < this.num ? this.index : 0;
   };
 
-  const pew = new Switcher("audio/pew.mp3", 20);
+  const pew = new Switcher(
+    "https://firebasestorage.googleapis.com/v0/b/galaxy-d7f5a.appspot.com/o/pew.mp3?alt=media&token=fc04cab6-b675-4973-a308-3de4d5a723b9",
+    20
+  );
 
   pew.channels.forEach(function(pew) {
     pew.resource.volume = 0.5;
@@ -148,7 +160,10 @@ function startGame() {
     this.index = this.index < this.num ? this.index : 0;
   };
 
-  const explosion = new Switcher("audio/explosion.mp3", 5);
+  const explosion = new Switcher(
+    "https://firebasestorage.googleapis.com/v0/b/galaxy-d7f5a.appspot.com/o/explosion.mp3?alt=media&token=a0c6859b-8dcc-427b-8632-6c8c256a3680",
+    5
+  );
 
   explosion.channels.forEach(function(explosion) {
     explosion.resource.volume = 0.5;
@@ -176,7 +191,8 @@ function startGame() {
   let player_width = 90,
     player_height = 95,
     player_img = new Image();
-  player_img.src = "css/img/ship.svg";
+  player_img.src =
+    "https://firebasestorage.googleapis.com/v0/b/galaxy-d7f5a.appspot.com/o/ship.svg?alt=media&token=502a2fac-ac19-4d31-b40f-1dc9a98d0a3c";
 
   // CREATE PLAYER
   let player = {
@@ -222,7 +238,8 @@ function startGame() {
 
     // get img
     this.img = new Image();
-    this.img.src = "css/img/explosion-sheet.png";
+    this.img.src =
+      "https://firebasestorage.googleapis.com/v0/b/galaxy-d7f5a.appspot.com/o/explosion-sheet.png?alt=media&token=71430327-f279-4351-bef9-4dbf663e9267";
 
     // Position where the frame will be drawn
     this.x = x;
@@ -286,7 +303,8 @@ function startGame() {
     enemy_height = 50,
     enemy_timer = 500,
     enemy_img = new Image();
-  enemy_img.src = "css/img/ufo.svg";
+  enemy_img.src =
+    "https://firebasestorage.googleapis.com/v0/b/galaxy-d7f5a.appspot.com/o/ufo.svg?alt=media&token=0430660e-21ab-4d0c-b0e8-b7166ba5602a";
 
   // CREATE ENEMY OBJECT
   function enemy(x, y, dx, dy, enemy_img, enemy_width, enemy_height, rotation) {
@@ -545,6 +563,7 @@ function startGame() {
       enemyArray = [];
       bulletsArray = [];
       player = {};
+      pew.channels = [];
       popUp.style.display = "flex";
       playAgain.style.display = "none";
       canvas.style.cursor = "default";
