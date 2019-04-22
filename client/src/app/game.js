@@ -1,8 +1,12 @@
 const gameButton = document.querySelector(".typing-effect__game-button");
-gameButton.addEventListener("click", gameTimeOut);
+if (gameButton) {
+  gameButton.addEventListener("click", gameTimeOut);
+}
 
-const plagaAgainButton = document.querySelector(".popup__play-again");
-plagaAgainButton.addEventListener("click", playAgain);
+const playAgainButton = document.querySelector(".popup__play-again");
+if (playAgainButton) {
+  playAgainButton.addEventListener("click", playAgain);
+}
 
 function gameTimeOut() {
   let gameTimer = 3;
