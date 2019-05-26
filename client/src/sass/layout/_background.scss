@@ -5,17 +5,25 @@
   left: 0;
   overflow: hidden;
   z-index: -2;
+  transition: all 1s;
+  position: fixed;
 }
 
 .mars {
   position: absolute;
   display: block;
-  bottom: 0;
+  bottom: -17px;
   left: 0;
   height: 20rem;
   width: 100%;
   user-select: none;
   z-index: -1;
+  position: fixed;
+
+  &::selection {
+    background-color: transparent;
+    color: #000;
+  }
 }
 
 .moon {
@@ -26,6 +34,12 @@
   width: 10rem;
   animation: spin 20s linear infinite;
   z-index: -1;
+  position: fixed;
+
+  &::selection {
+    background-color: transparent;
+    color: #000;
+  }
 }
 
 @keyframes spin {

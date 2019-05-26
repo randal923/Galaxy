@@ -26,15 +26,6 @@ module.exports = merge(common, {
           collapseWhitespace: true,
           removeComments: true
         }
-      }),
-      new HtmlWebpackPlugin({
-        filename: "portfolio.html",
-        template: "./src/portfolio.html",
-        minify: {
-          removeAttributeQuotes: true,
-          collapseWhitespace: true,
-          removeComments: true
-        }
       })
     ]
   },

@@ -85,6 +85,7 @@ function startGame() {
   const innerHeight = window.innerHeight;
   canvas.width = innerWidth;
   canvas.height = innerHeight;
+  console.log(window.innerHeight);
 
   // AUDIO
 

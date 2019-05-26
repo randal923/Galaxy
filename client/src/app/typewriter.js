@@ -1,12 +1,12 @@
-const destination = document.querySelectorAll('*[key="typing"]');
+const destination = document.querySelectorAll('*[data-key="typing"]');
 const textArray = [
   "Hello, my name is Randal A. Nunes",
   "I'm a Full Stack Web Developer and a Javascript specialist",
   'Check out my <a href="https://github.com/randal923" class="typing-effect__social" data-hover="Github">Github</a> and <a href="https://www.linkedin.com/in/randalandradenunes/" class="typing-effect__social"> Linkedin</a> page',
-  'Feel free to take a look at my latest projects on my <a href="http://localhost:8080/portfolio.html" class="typing-effect__social">portfolio</a> page',
+  'Feel free to take a look at my latest projects on my <a href="javascript:void(0);" class="typing-effect__social">portfolio</a> page',
   'Based in Vancouver, Canada. Enquires at <a href="mailto:randal.andrade@hotmail.com" class="typing-effect__social">randal.andrade@hotmail.com</a>'
 ];
-const speed = 30;
+const speed = 15;
 let index = 0;
 let arrayLength = textArray[0].length;
 let textPosition = 0;
@@ -23,7 +23,7 @@ function typewriter() {
       index++;
       if (index != textArray.length) {
         arrayLength = textArray[index].length;
-        setTimeout(typewriter, 30);
+        setTimeout(typewriter, 1);
       }
     } else {
       setTimeout(typewriter, speed);

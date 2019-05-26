@@ -1,46 +1,25 @@
-#portfolio-body {
-  background-color: #041527;
-  background: url(assets/bg-portfolio.png);
-}
-
-#portfolio-canvas {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  z-index: -1;
-}
-.planet {
-  position: absolute;
-  top: 30rem;
-  left: 2rem;
-  z-index: -1;
-}
-
-.portfolio-moon {
-  position: absolute;
-  top: 3rem;
-  right: 2rem;
-  height: 10rem;
-  width: 10rem;
-  animation: spin 20s linear infinite;
-  z-index: -1;
-}
-
-.portfolio {
+.portfolio-section {
+  height: 150rem;
+  background-color: #3a3352;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem;
-  z-index: 1;
 
-  &-title {
-    font-size: 1.9rem;
-    margin: 2rem;
+  &__heading-primary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #7ed56f, #28b485);
+    background-clip: text;
+    display: block;
+    -webkit-background-clip: text;
+    color: transparent;
+    line-height: 3.5rem;
+    margin-top: 3rem;
   }
-
-  &-paragraph {
-    font-size: 1.4rem;
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+    justify-content: center;
   }
 }
