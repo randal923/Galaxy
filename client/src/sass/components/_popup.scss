@@ -13,7 +13,7 @@
 
   &__container {
     height: 0.1rem;
-    width: 0;
+    width: 100%;
     animation: popupWidth 0.5s 1 normal linear forwards 0s,
       popupHeight 0.5s 1 normal linear forwards 0.5s;
     background-repeat: no-repeat;

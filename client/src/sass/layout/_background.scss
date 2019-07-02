@@ -1,6 +1,6 @@
 #background-canvas {
   display: block;
-  position: absolute;
+  width: 100%;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -40,6 +40,36 @@
     background-color: transparent;
     color: #000;
   }
+
+  @include respond(phone) {
+    top: 2rem;
+    right: 3rem;
+    opacity: 0.7;
+  }
+}
+
+.slidecontainer {
+  position: absolute;
+  top: 4.2rem;
+  left: 27.5rem;
+  z-index: 5;
+  display: none;
+
+  @include respond(tab-port) {
+    top: 8rem;
+    left: 1rem;
+  }
+}
+.slider {
+  width: 12rem;
+  height: 1rem;
+  border-radius: 5px;
+  background-color: #2ecc71;
+  opacity: 0.7;
+}
+.volume-icon {
+  font-size: 1.7rem;
+  margin-right: 3px;
 }
 
 @keyframes spin {

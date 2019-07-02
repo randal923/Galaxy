@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link
       href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700"
       rel="stylesheet"
@@ -11,11 +12,12 @@
       href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
       rel="stylesheet"
     />
+    <script src=https://kit.fontawesome.com/609bba655a.js></script>
     <title>Randal A. Nunes</title>
   </head>
   <body>
     <main>
-      <section class="home-section">
+      <section class="home-section" id="home">
         <div class="typing-effect">
           <h3 class="typing-effect__h3" data-key="typing"></h3>
           <h1 class="typing-effect__h1" data-key="typing"></h1>
@@ -29,7 +31,39 @@
         <div class="mousey">
           <div class="scroller"></div>
         </div>
+        <div class="popup">
+            <div class="popup__container">
+              <h3 class="popup__container--points" key="popup-content"></h3>
+              <ul class="popup__container--content" key="popup-content">
+                <li>
+                  <span class="popup__container--content-title time"></span>
+                  <span
+                    class="popup__container--content-statistic time-number"
+                  ></span>
+                </li>
+                <li>
+                  <span class="popup__container--content-title shots"></span>
+                  <span
+                    class="popup__container--content-statistic shots-number"
+                  ></span>
+                </li>
+                <li>
+                  <span class="popup__container--content-title accuracy"></span>
+                  <span
+                    class="popup__container--content-statistic accuracy-number"
+                  ></span>
+                </li>
+              </ul>
+              <button class="popup__play-again">
+                PLAY AGAIN
+              </button>
+            </div>
+          </div>
       </section>
+      <div class="slidecontainer">
+        <i class="fas fa-volume-up volume-icon" aria-hidden="true"></i> 
+        <input type="range" min="0" max="100" value="30" class="slider" id="myRange">
+      </div>
       <canvas id="background-canvas"> </canvas>
       <canvas id="game-canvas"> </canvas>
       <img src="./assets/moon.svg" alt="moon" class="moon" draggable="false" />
@@ -39,7 +73,7 @@
         class="mars"
         draggable="false"
       />
-      <div class="portfolio-section">
+      <div class="portfolio-section" id="portfolio">
         <h3 class="portfolio-section__heading-primary">My Projects</h3>
         <div class="portfolio-section__grid">
 
@@ -66,8 +100,8 @@
                 <img src="assets/react.png" alt="reactjs" class="card__logo-3">
               </div>
               <div class="card__btn">
-                <a href="#" class="card__btn-1">code</a>
-                <a href="#" class="card__btn-1">demo</a>
+                <a href="https://github.com/randal923/Ark" class="card__btn-1">code</a>
+                <a href="https://github.com/randal923/Ark" class="card__btn-1">demo</a>
               </div>
               </div>
             </div>
@@ -79,117 +113,40 @@
                 &nbsp;
               </div>
               <h4 class="card__heading card__heading--2">
-                Project Ark
+                Project Nature
               </h4>
             </div>
-            <div class="card__side card__side--back card__side--back-1">
-              <div class="card__backpicture card__backpicture--1">
+            <div class="card__side card__side--back card__side--back-2">
+              <div class="card__backpicture card__backpicture--2">
                 &nbsp;
               </div>
               <h4 class="card__heading--back">
-                Ark
+                Nature
               </h4>
               <div class="card__details">
-                <img src="assets/nodejs.svg" alt="nodejs" class="card__logo-1">
-                <img src="assets/mongodb.svg" alt="mongodb" class="card__logo-2">
-                <img src="assets/react.png" alt="reactjs" class="card__logo-3">
+                <img src="assets/css.svg" alt="css" class="card__logo-4">
+                <img src="assets/sass.svg" alt="sass" class="card__logo-5">
+                <img src="assets/firebase.svg" alt="firebase" class="card__logo-6">
               </div>
               <div class="card__btn">
-                <a href="#" class="card__btn-1">code</a>
-                <a href="#" class="card__btn-1">demo</a>
+                <a href="https://github.com/randal923/Nature" class="card__btn-1">code</a>
+                <a href="https://nature-aaa93.firebaseapp.com" class="card__btn-1">demo</a>
               </div>
               </div>
             </div>
-
-            <!-- CARD 3 -->
-          <div class="card">
-            <div class="card__side card__side--front">
-              <div class="card__picture card__picture--3">
-                &nbsp;
-              </div>
-              <h4 class="card__heading card__heading--3">
-                Project Ark
-              </h4>
+          </div>
+          <div class="footer-section">
+            <div class="footer-section__menu">
+                <ul>
+                  <li>© 2019 Randal A. Nunes</li>
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#portfolio">Portfolio</a></li>
+                  <li><a href="https://www.linkedin.com/in/randalandradenunes/"><i class="fab fa-linkedin footer-section__icon" aria-hidden="true"></i></a></li>
+                  <li><a href="https://github.com/randal923"><i class="fab fa-github-square footer-section__icon" aria-hidden="true"></i></a></li>
+                </ul>
             </div>
-            <div class="card__side card__side--back card__side--back-1">
-              <div class="card__backpicture card__backpicture--1">
-                &nbsp;
-              </div>
-              <h4 class="card__heading--back">
-                Ark
-              </h4>
-              <div class="card__details">
-                <img src="assets/nodejs.svg" alt="nodejs" class="card__logo-1">
-                <img src="assets/mongodb.svg" alt="mongodb" class="card__logo-2">
-                <img src="assets/react.png" alt="reactjs" class="card__logo-3">
-              </div>
-              <div class="card__btn">
-                <a href="#" class="card__btn-1">code</a>
-                <a href="#" class="card__btn-1">demo</a>
-              </div>
-              </div>
-            </div>
-
-            <!-- CARD 4 -->
-          <div class="card">
-            <div class="card__side card__side--front">
-              <div class="card__picture card__picture--4">
-                &nbsp;
-              </div>
-              <h4 class="card__heading card__heading--4">
-                Project Ark
-              </h4>
-            </div>
-            <div class="card__side card__side--back card__side--back-1">
-              <div class="card__backpicture card__backpicture--1">
-                &nbsp;
-              </div>
-              <h4 class="card__heading--back">
-                Ark
-              </h4>
-              <div class="card__details">
-                <img src="assets/nodejs.svg" alt="nodejs" class="card__logo-1">
-                <img src="assets/mongodb.svg" alt="mongodb" class="card__logo-2">
-                <img src="assets/react.png" alt="reactjs" class="card__logo-3">
-              </div>
-              <div class="card__btn">
-                <a href="#" class="card__btn-1">code</a>
-                <a href="#" class="card__btn-1">demo</a>
-              </div>
-              </div>
-            </div>
-
           </div>
         </div>
-      </div>
     </main>
-    <div class="popup">
-      <div class="popup__container">
-        <h3 class="popup__container--points" key="popup-content"></h3>
-        <ul class="popup__container--content" key="popup-content">
-          <li>
-            <span class="popup__container--content-title time"></span>
-            <span
-              class="popup__container--content-statistic time-number"
-            ></span>
-          </li>
-          <li>
-            <span class="popup__container--content-title shots"></span>
-            <span
-              class="popup__container--content-statistic shots-number"
-            ></span>
-          </li>
-          <li>
-            <span class="popup__container--content-title accuracy"></span>
-            <span
-              class="popup__container--content-statistic accuracy-number"
-            ></span>
-          </li>
-        </ul>
-        <button class="popup__play-again">
-          PLAY AGAIN
-        </button>
-      </div>
-    </div>
   </body>
 </html>

@@ -1,0 +1,35 @@
+.footer-section {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+
+  &__menu {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    & > ul {
+      display: flex;
+
+      & > li {
+        list-style: none;
+        margin: 2rem;
+        font-size: 1.4rem;
+
+        & > a {
+          text-decoration: none;
+          color: white;
+
+          &:hover,
+          &:active {
+            color: #fd5d73;
+          }
+        }
+      }
+    }
+  }
+
+  &__icon {
+    font-size: 2rem;
+  }
+}

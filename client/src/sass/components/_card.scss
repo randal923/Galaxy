@@ -31,6 +31,10 @@
       &-3 {
         background-color: green;
       }
+      // TURN CARD ON MOBILE AND TABLETS
+      @include respond(tab-port) {
+        transform: rotateY(0);
+      }
     }
   }
 
@@ -112,6 +116,10 @@
     &--1 {
       background-image: url(assets/ark-store.jpg);
     }
+
+    &--2 {
+      background-image: url(assets/nature.png);
+    }
   }
 
   &__details {
@@ -134,6 +142,23 @@
     &-3 {
       height: 5rem;
       margin: 1rem 1rem 2rem 1rem;
+      width: 18rem;
+    }
+    &-4 {
+      margin-top: 2rem;
+      height: 7.5rem;
+      width: 14rem;
+    }
+
+    &-5 {
+      height: 5.5rem;
+      margin: 1.5rem 1rem 1rem;
+      width: 18rem;
+    }
+
+    &-6 {
+      height: 5rem;
+      margin: 0 1rem;
       width: 18rem;
     }
   }

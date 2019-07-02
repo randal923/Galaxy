@@ -74,10 +74,11 @@ function startGame() {
     c = canvas.getContext("2d");
 
   // CANVAS STYLING
-  canvas.style.cursor = "none";
+  //canvas.style.cursor = "none";
   canvas.draggable = false;
   document.querySelector(".typing-effect__game-button").style.display = "none";
-  document.querySelector(".home-section").style.display = "none";
+  document.querySelector(".typing-effect").style.display = "none";
+  document.querySelector(".mousey").style.display = "none";
   document.querySelector("#game-canvas").style.display = "block";
 
   // CANVAS DIMENSIONS
@@ -85,7 +86,6 @@ function startGame() {
   const innerHeight = window.innerHeight;
   canvas.width = innerWidth;
   canvas.height = innerHeight;
-  console.log(window.innerHeight);
 
   // AUDIO
 
@@ -93,15 +93,23 @@ function startGame() {
   const gameOver = new Audio();
   gameOver.src =
     "https://firebasestorage.googleapis.com/v0/b/galaxy-d7f5a.appspot.com/o/game-over.mp3?alt=media&token=e060b508-f5ea-4fdf-8d1f-c31edbe78953";
-  gameOver.volume = 0.7;
+  gameOver.volume = 0.3;
 
   // MUSIC
   const music = new Audio();
   music.src =
     "https://firebasestorage.googleapis.com/v0/b/galaxy-d7f5a.appspot.com/o/racing-car.mp3?alt=media&token=19a83c23-cfbf-4ffc-ba50-4a2768d24e65";
-  music.volume = 0.5;
+  music.volume = 0.3;
   music.play();
   music.loop = true;
+
+  // AUDIO SLIDER FOR MUSIC
+  let slider = (document.querySelector(".slidecontainer").style.display =
+    "block");
+  let audioSlider = document.querySelector(".slider");
+  audioSlider.addEventListener("change", function() {
+    music.volume = audioSlider.value / 100;
+  });
 
   // GUN
   // creating channell to store many instances of the audio
@@ -136,7 +144,7 @@ function startGame() {
   );
 
   pew.channels.forEach(function(pew) {
-    pew.resource.volume = 0.5;
+    pew.resource.volume = 0.3;
   });
   // EXPLOSION
   // creating channell to store many instances of the audio
@@ -171,7 +179,7 @@ function startGame() {
   );
 
   explosion.channels.forEach(function(explosion) {
-    explosion.resource.volume = 0.5;
+    explosion.resource.volume = 0.3;
   });
 
   // KEYS EVENT LISTENERS
@@ -571,7 +579,7 @@ function startGame() {
       pew.channels = [];
       popUp.style.display = "flex";
       playAgain.style.display = "none";
-      canvas.style.cursor = "default";
+      //canvas.style.cursor = "default";
       setTimeout(function() {
         popupContent.forEach(function(element) {
           element.style.display = "block";
