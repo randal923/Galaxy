@@ -186,14 +186,15 @@
   }
   &__btn {
     display: flex;
+    width: 100%;
     justify-content: center;
-    margin: 0.5rem;
 
     &-1 {
       background-color: #f44336;
       border: none;
+      width: 100%;
+      padding: 1.5rem 2.8rem;
       color: white;
-      padding: 15px 32px;
       text-align: center;
       text-decoration: none;
       margin: 1rem;
