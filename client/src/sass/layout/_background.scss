@@ -7,6 +7,9 @@
   z-index: -2;
   transition: all 1s;
   position: fixed;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .mars {
@@ -19,6 +22,9 @@
   user-select: none;
   z-index: -1;
   position: fixed;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 
   &::selection {
     background-color: transparent;
@@ -35,6 +41,9 @@
   animation: spin 20s linear infinite;
   z-index: -1;
   position: fixed;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 
   &::selection {
     background-color: transparent;
@@ -50,8 +59,8 @@
 
 .slidecontainer {
   position: absolute;
-  top: 4.2rem;
-  left: 27.5rem;
+  top: 3rem;
+  left: 22.5rem;
   z-index: 5;
   display: none;
 
@@ -61,11 +70,38 @@
   }
 }
 .slider {
+  -webkit-appearance: none;
+  appearance: none;
   width: 12rem;
   height: 1rem;
   border-radius: 5px;
   background-color: #2ecc71;
   opacity: 0.7;
+  outline: none;
+  opacity: 0.7; 
+  -webkit-transition: .2s; 
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1; 
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  border-radius: 2rem;
+  width: 2rem; 
+  height: 2rem; 
+  background: white; 
+  cursor: pointer; 
+}
+
+.slider::-moz-range-thumb {
+  width: 2rem; 
+  height: 2rem; 
+  background: white; 
+  cursor: pointer;
 }
 .volume-icon {
   font-size: 1.7rem;

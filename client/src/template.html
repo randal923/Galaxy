@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link
-      href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
-      rel="stylesheet"
-    />
-    <script src=https://kit.fontawesome.com/609bba655a.js></script>
-    <title>Randal A. Nunes</title>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+  <script src=https://kit.fontawesome.com/609bba655a.js> </script> <title>Randal A. Nunes</title>
   </head>
   <body>
     <main>
@@ -60,12 +54,20 @@
             </div>
           </div>
       </section>
+
+      <!-- AUDIO SLIDER-->
       <div class="slidecontainer">
         <i class="fas fa-volume-up volume-icon" aria-hidden="true"></i> 
         <input type="range" min="0" max="100" value="30" class="slider" id="myRange">
       </div>
+
+      <!-- BACKGROUND CANVAS -->
       <canvas id="background-canvas"> </canvas>
+
+      <!-- GAME CANVAS -->
       <canvas id="game-canvas"> </canvas>
+
+      <!-- BACKGROUND IMAGES -->
       <img src="./assets/moon.svg" alt="moon" class="moon" draggable="false" />
       <img
         src="./assets/mars-1.svg"
@@ -73,6 +75,8 @@
         class="mars"
         draggable="false"
       />
+
+      <!-- PORTFOLIO SECTION-->
       <div class="portfolio-section" id="portfolio">
         <h3 class="portfolio-section__heading-primary">My Projects</h3>
         <div class="portfolio-section__grid">
@@ -134,6 +138,36 @@
               </div>
               </div>
             </div>
+
+          <!-- CARD 3 -->
+          <div class="card">
+            <div class="card__side card__side--front">
+              <div class="card__picture card__picture--1">
+                &nbsp;
+              </div>
+              <h4 class="card__heading card__heading--1">
+                Project Galaxy
+              </h4>
+            </div>
+            <div class="card__side card__side--back card__side--back-3">
+              <div class="card__backpicture card__backpicture--3">
+                &nbsp;
+              </div>
+              <h4 class="card__heading--back">
+                Galaxy
+              </h4>
+              <div class="card__details">
+                <img src="assets/css.svg" alt="nodejs" class="card__logo-7">
+                <img src="assets/sass.svg" alt="mongodb" class="card__logo-8">
+                <img src="assets/javascript.svg" alt="reactjs" class="card__logo-9">
+              </div>
+              <div class="card__btn">
+                <a href="https://github.com/randal923/Galaxy" class="card__btn-1">code</a>
+                <a href="https://randal.me" class="card__btn-1">demo</a>
+              </div>
+              </div>
+            </div>
+
           </div>
           <div class="footer-section">
             <div class="footer-section__menu">
