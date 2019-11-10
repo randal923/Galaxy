@@ -12,26 +12,6 @@
   user-select: none;
 }
 
-.mars {
-  position: absolute;
-  display: block;
-  bottom: -17px;
-  left: 0;
-  height: 20rem;
-  width: 100%;
-  user-select: none;
-  z-index: -1;
-  position: fixed;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-
-  &::selection {
-    background-color: transparent;
-    color: #000;
-  }
-}
-
 .moon {
   position: absolute;
   top: 5rem;

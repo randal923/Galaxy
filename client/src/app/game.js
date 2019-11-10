@@ -233,7 +233,7 @@ function startGame() {
         this.y = innerHeight - this.height;
       }
 
-      c.drawImage(player_img, this.x, this.y, this.width, this.height);
+      c.drawImage(player_img, (this.x - (player.width/2 - 8)), this.y, this.width, this.height);
       this.update();
     }
   };
@@ -414,7 +414,7 @@ function startGame() {
     };
     this.draw = function() {
       c.beginPath();
-      c.rect(this.x, this.y, this.width, this.height);
+      c.rect((this.x - (player.width/2 - 8)), this.y, this.width, this.height);
       c.fillStyle = "yellow";
       c.fill();
     };

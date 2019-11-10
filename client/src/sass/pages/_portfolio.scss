@@ -9,14 +9,11 @@
   &__heading-primary {
     font-size: 3.5rem;
     text-transform: uppercase;
-    background: linear-gradient(to right, #7ed56f, #28b485);
-    background-clip: text;
-    display: block;
-    -webkit-background-clip: text;
-    color: transparent;
+    color: white;
     line-height: 3.5rem;
     margin-top: 3rem;
   }
+
   &__grid {
     display: flex;
     flex-wrap: wrap;

@@ -1,0 +1,19 @@
+.mars {
+    position: absolute;
+    display: block;
+    bottom: -17px;
+    left: 0;
+    height: 20rem;
+    position: fixed;
+    width: 100%;
+    user-select: none;
+    z-index: -1;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  
+    &::selection {
+      background-color: transparent;
+      color: #000;
+    }
+}
