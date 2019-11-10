@@ -1,122 +1,108 @@
 .typing-effect {
-  height: 15rem;
-  width: 100%;
-  text-align: center;
-  position: relative;
-  bottom: 3rem;
-  font-family: "Josefin Slab";
-
-  @include respond(tab-port) {
-    margin-bottom: 3rem;
-  }
-
-  &__h3 {
-    font-size: 2.5rem;
-    line-height: 3rem;
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
-  }
-
-  &__h1 {
-    color: #ededed;
-    font-size: 2rem;
-    line-height: 3rem;
-    font-weight: 500;
-
-    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
-  }
-
-  &__h2 {
-    color: #ededed;
-    font-size: 2rem;
-    line-height: 3rem;
-    font-weight: 500;
-    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
-  }
-
-  &__p {
-    color: #ededed;
-    font-size: 2rem;
-    line-height: 3rem;
-    font-weight: 500;
-    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
-  }
-
-  &__address {
-    color: #ededed;
-    font-size: 2rem;
-    line-height: 1.9rem;
-    font-weight: 500;
-    text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
-  }
-
-  &__social {
-    text-decoration: none;
-    color: white;
-    font-weight: 700;
-    transition: all 0.3s;
-
-    &:hover,
-    &:focus {
-      color: #fd5d73;
-    }
-  }
-
-  &__game-button {
-    border: none;
-    cursor: pointer;
-    padding: 2.5rem 8rem;
-    display: inline-block;
-    margin: 1.5rem 3rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    font-weight: 700;
-    outline: none;
+    height: 15rem;
+    width: 100%;
+    text-align: center;
     position: relative;
-    transition: all 0.3s;
-
-    border-radius: 0.5rem;
-    background: #cb4e4e;
-    color: #fff;
-    box-shadow: 0 0.6rem #ab3c3c;
-    -webkit-transition: none;
-    -moz-transition: none;
-    transition: none;
-
+    bottom: 3rem;
+    font-family: "Josefin Slab";
     @include respond(tab-port) {
-      display: none;
+        margin-bottom: 3rem;
     }
-
-    &:after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      -webkit-transition: all 0.3s;
-      -moz-transition: all 0.3s;
-      transition: all 0.3s;
+    &__h3 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+        font-weight: 700;
+        letter-spacing: -1.5px;
+        text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
     }
-
-    &:hover {
-      box-shadow: 0 0.4rem #ab3c3c;
-      top: 0.2rem;
+    &__h1 {
+        color: #ededed;
+        font-size: 2rem;
+        line-height: 3rem;
+        font-weight: 500;
+        text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
     }
-
-    &:active {
-      box-shadow: 0 0 #ab3c3c;
-      top: 0.6rem;
+    &__h2 {
+        color: #ededed;
+        font-size: 2rem;
+        line-height: 3rem;
+        font-weight: 500;
+        text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
     }
-  }
+    &__p {
+        color: #ededed;
+        font-size: 2rem;
+        line-height: 3rem;
+        font-weight: 500;
+        text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
+    }
+    &__address {
+        color: #ededed;
+        font-size: 2rem;
+        line-height: 1.9rem;
+        font-weight: 500;
+        text-shadow: 0 0 1px rgba(111, 134, 134, 0.6);
+    }
+    &__social {
+        text-decoration: none;
+        color: white;
+        font-weight: 700;
+        transition: all 0.3s;
+        &:hover,
+        &:focus {
+            color: #fd5d73;
+        }
+    }
+    &__game-button {
+        border: none;
+        cursor: pointer;
+        padding: 2.5rem 8rem;
+        display: inline-block;
+        margin: 1.5rem 3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-weight: 700;
+        outline: none;
+        position: relative;
+        transition: all 0.3s;
+        border-radius: 0.5rem;
+        background: #cb4e4e;
+        color: #fff;
+        box-shadow: 0 0.6rem #ab3c3c;
+        -webkit-transition: none;
+        -moz-transition: none;
+        transition: none;
+        @include respond(tab-port) {
+            display: none;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+        &:hover {
+            box-shadow: 0 0.4rem #ab3c3c;
+            top: 0.2rem;
+        }
+        &:active {
+            box-shadow: 0 0 #ab3c3c;
+            top: 0.6rem;
+        }
+    }
 }
 
 @keyframes blink-caret {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
+
 
 /*
 &::after {

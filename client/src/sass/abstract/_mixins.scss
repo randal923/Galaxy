@@ -1,4 +1,5 @@
 // MEDIA QUERY
+
 /* 
 phone = 600px
 tab-port = 900px
@@ -8,24 +9,24 @@ desktop = 1800px
 */
 
 @mixin respond($breakpoint) {
-  @if $breakpoint == phone {
-    @media (max-width: 37.5em) {
-      @content;
-    } // 600px
-  }
-  @if $breakpoint == tab-port {
-    @media (max-width: 56.25em) {
-      @content;
-    } // 900px
-  }
-  @if $breakpoint == tab-land {
-    @media (max-width: 75em) {
-      @content;
-    } // 1200px
-  }
-  @if $breakpoint == desktop {
-    @media (min-width: 112.5em) {
-      @content;
+    @if $breakpoint==phone {
+        @media (max-width: 37.5em) {
+            @content;
+        } // 600px
     }
-  } // 1800px
+    @if $breakpoint==tab-port {
+        @media (max-width: 56.25em) {
+            @content;
+        } // 900px
+    }
+    @if $breakpoint==tab-land {
+        @media (max-width: 75em) {
+            @content;
+        } // 1200px
+    }
+    @if $breakpoint==desktop {
+        @media (min-width: 112.5em) {
+            @content;
+        }
+    } // 1800px
 }

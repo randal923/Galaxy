@@ -1,0 +1,31 @@
+.moon {
+    position: absolute;
+    top: 5rem;
+    right: 12rem;
+    height: 10rem;
+    width: 10rem;
+    animation: spin 20s linear infinite;
+    z-index: -1;
+    position: fixed;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    &::selection {
+        background-color: transparent;
+        color: #000;
+    }
+    @include respond(phone) {
+        top: 2rem;
+        right: 3rem;
+        opacity: 0.7;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

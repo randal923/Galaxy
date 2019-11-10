@@ -1,221 +1,198 @@
 .card {
-  perspective: 200rem;
-  margin: 3rem;
-  display: inline-block;
-  position: relative;
-  height: 43rem;
-  width: 25rem;
-
-  &__side {
+    perspective: 200rem;
+    margin: 3rem;
+    display: inline-block;
+    position: relative;
     height: 43rem;
     width: 25rem;
-    transition: all 0.8s ease;
-    position: absolute;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
-    border-radius: 3px;
-    overflow: hidden;
-    box-shadow: 0 1.5rem 4rem rgba(black, 0.15);
-
-    &--back {
-      transform: rotateY(180deg);
-      background-image: linear-gradient(to right bottom, #8f3e51, #3a3352);
-
-      &-1 {
-        background-color: white;
-      }
-      &-2 {
-        background-color: green;
-      }
-      &-3 {
-        background-color: green;
-      }
-      // TURN CARD ON MOBILE AND TABLETS
-      @include respond(tab-port) {
-        transform: rotateY(0);
-      }
+    &__side {
+        height: 43rem;
+        width: 25rem;
+        transition: all 0.8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba(black, 0.15);
+        &--back {
+            transform: rotateY(180deg);
+            background-image: linear-gradient(to right bottom, #8f3e51, #3a3352);
+            &-1 {
+                background-color: white;
+            }
+            &-2 {
+                background-color: green;
+            }
+            &-3 {
+                background-color: green;
+            }
+            // TURN CARD ON MOBILE AND TABLETS
+            @include respond(tab-port) {
+                transform: rotateY(0);
+            }
+        }
     }
-  }
-
-  &:hover &__side--front {
-    transform: rotateY(-180deg);
-  }
-  &:hover &__side--back {
-    transform: rotateY(0deg);
-  }
-
-  // CARD FRONT
-  &__picture {
-    background-size: cover;
-    height: 100%;
-
-    &--1 {
-      background-image: url(assets/card-1.svg);
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
     }
-    &--2 {
-      background-image: url(assets/card-2.svg);
+    &:hover &__side--back {
+        transform: rotateY(0deg);
     }
-    &--3 {
-      background-image: url(assets/card-3.svg);
+    // CARD FRONT
+    &__picture {
+        background-size: cover;
+        height: 100%;
+        &--1 {
+            background-image: url(assets/card-1.svg);
+        }
+        &--2 {
+            background-image: url(assets/card-2.svg);
+        }
+        &--3 {
+            background-image: url(assets/card-3.svg);
+        }
+        &--4 {
+            background-image: url(assets/card-4.svg);
+        }
     }
-    &--4 {
-      background-image: url(assets/card-4.svg);
+    &__heading {
+        color: black;
+        font-size: 1.8rem;
+        font-family: Lato;
+        font-weight: 900;
+        text-transform: uppercase;
+        text-align: right;
+        width: 25%;
+        position: relative;
+        &--1 {
+            position: absolute;
+            bottom: 1.7rem;
+            left: 1rem;
+        }
+        &--2 {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1rem;
+        }
+        &--3 {
+            position: absolute;
+            bottom: 2rem;
+            right: 2.5rem;
+        }
+        &--4 {
+            position: absolute;
+            bottom: 2rem;
+            left: 1rem;
+        }
+        &--back {
+            font-size: 2.8rem;
+            font-weight: 900;
+            width: 100%;
+            text-transform: uppercase;
+            position: absolute;
+            top: 11.5rem;
+            right: 1.5rem;
+            text-align: right;
+            text-shadow: 1px 1px black;
+        }
     }
-  }
-
-  &__heading {
-    color: black;
-    font-size: 1.8rem;
-    font-family: Lato;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-align: right;
-    width: 25%;
-    position: relative;
-
-    &--1 {
-      position: absolute;
-      bottom: 1.7rem;
-      left: 1rem;
+    // CARD BACK
+    &__backpicture {
+        background-size: cover;
+        height: 30%;
+        &--1 {
+            background-image: url(assets/ark-store.jpg);
+        }
+        &--2 {
+            background-image: url(assets/nature.png);
+        }
+        &--3 {
+            background-image: url(assets/galaxy.png);
+        }
     }
-
-    &--2 {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 1rem;
+    &__details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    &--3 {
-      position: absolute;
-      bottom: 2rem;
-      right: 2.5rem;
+    &__logo {
+        &-1 {
+            margin-top: 1rem;
+            height: 7.5rem;
+            width: 14rem;
+        }
+        &-2 {
+            height: 5.5rem;
+            margin: 0 1rem 1rem 1rem;
+            width: 18rem;
+        }
+        &-3 {
+            height: 5rem;
+            margin: 1rem 1rem 2rem 1rem;
+            width: 18rem;
+        }
+        &-4 {
+            margin-top: 2rem;
+            height: 7.5rem;
+            width: 14rem;
+        }
+        &-5 {
+            height: 5.5rem;
+            margin: 1.5rem 1rem 1rem;
+            width: 18rem;
+        }
+        &-6 {
+            height: 5rem;
+            margin: 0 1rem;
+            width: 18rem;
+        }
+        &-7 {
+            height: 8rem;
+            margin: 1.6rem 0 0.4rem 0;
+            width: 18rem;
+        }
+        &-8 {
+            height: 5rem;
+            margin: 1rem;
+            width: 18rem;
+        }
+        &-9 {
+            height: 5rem;
+            margin: 0.4rem 0 0 0;
+            width: 18rem;
+        }
     }
-
-    &--4 {
-      position: absolute;
-      bottom: 2rem;
-      left: 1rem;
+    &__btn {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        &-1 {
+            background-color: #f44336;
+            border: none;
+            width: 100%;
+            padding: 1.5rem 2.8rem;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            margin: 1rem;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            box-shadow: 0 0.5rem 2rem rgba(black, 0.15);
+            &:hover,
+            &:active {
+                background-color: red;
+            }
+        }
     }
-
-    &--back {
-      font-size: 2.8rem;
-      font-weight: 900;
-      width: 100%;
-      text-transform: uppercase;
-      position: absolute;
-      top: 11.5rem;
-      right: 1.5rem;
-      text-align: right;
-      text-shadow: 1px 1px black;
+    &__react {
+        display: flex;
+        align-items: center;
+        &-text {
+            font-size: 2rem;
+            line-height: 2rem;
+            color: #61dafb;
+        }
     }
-  }
-
-  // CARD BACK
-  &__backpicture {
-    background-size: cover;
-    height: 30%;
-    &--1 {
-      background-image: url(assets/ark-store.jpg);
-    }
-
-    &--2 {
-      background-image: url(assets/nature.png);
-    }
-    &--3 {
-      background-image: url(assets/galaxy.png);
-    }
-  }
-
-  &__details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  &__logo {
-    &-1 {
-      margin-top: 1rem;
-      height: 7.5rem;
-      width: 14rem;
-    }
-    &-2 {
-      height: 5.5rem;
-      margin: 0 1rem 1rem 1rem;
-      width: 18rem;
-    }
-    &-3 {
-      height: 5rem;
-      margin: 1rem 1rem 2rem 1rem;
-      width: 18rem;
-    }
-    &-4 {
-      margin-top: 2rem;
-      height: 7.5rem;
-      width: 14rem;
-    }
-
-    &-5 {
-      height: 5.5rem;
-      margin: 1.5rem 1rem 1rem;
-      width: 18rem;
-    }
-
-    &-6 {
-      height: 5rem;
-      margin: 0 1rem;
-      width: 18rem;
-    }
-
-    &-7 {
-      height: 8rem;
-      margin: 1.6rem 0 0.4rem 0;
-      width: 18rem;
-    }
-
-    &-8 {
-      height: 5rem;
-      margin: 1rem;
-      width: 18rem;
-    }
-
-    &-9 {
-      height: 5rem;
-      margin: 0.4rem 0 0 0;
-      width: 18rem;
-    }
-  }
-  &__btn {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-
-    &-1 {
-      background-color: #f44336;
-      border: none;
-      width: 100%;
-      padding: 1.5rem 2.8rem;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      margin: 1rem;
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      box-shadow: 0 0.5rem 2rem rgba(black, 0.15);
-
-      &:hover,
-      &:active {
-        background-color: red;
-      }
-    }
-  }
-
-  &__react {
-    display: flex;
-    align-items: center;
-    &-text {
-      font-size: 2rem;
-      line-height: 2rem;
-      color: #61dafb;
-    }
-  }
 }
