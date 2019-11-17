@@ -13,13 +13,6 @@ function gameTimeOut() {
     const gameButton = document.querySelector(".typing-effect__game-button");
     gameButton.disabled = true;
 
-    // Scroll player to top of the page
-    window.scroll({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-    });
-
     // COUNT DOWN
     function countDown() {
         if (gameTimer > 0) {
@@ -205,7 +198,7 @@ function startGame() {
     // VARIABLES
     let score = 0;
     let lastTime = 0;
-    const paused = false;
+    let paused = false;
 
     // PLAYER SETUP
     let player_width = 90,
@@ -215,7 +208,7 @@ function startGame() {
         "https://firebasestorage.googleapis.com/v0/b/galaxy-d7f5a.appspot.com/o/ship.svg?alt=media&token=502a2fac-ac19-4d31-b40f-1dc9a98d0a3c";
 
     // CREATE PLAYER
-    const player = {
+    let player = {
         width: player_width,
         height: player_height,
         x: innerWidth - player_width,
@@ -511,7 +504,14 @@ function startGame() {
 
     // ANIMATION LOOP
     function animate(currentTime) {
-        const animation = requestAnimationFrame(animate);
+        if (window.pageYOffset !== 0) {
+            // Scroll player to top of the page
+            window.scroll({
+                top: 0,
+                left: 0
+            });
+        }
+        let animation = requestAnimationFrame(animate);
         c.clearRect(0, 0, canvas.width, canvas.height);
 
         // SCORE
