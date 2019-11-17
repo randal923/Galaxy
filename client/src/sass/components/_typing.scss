@@ -4,6 +4,7 @@
     text-align: center;
     position: relative;
     bottom: 3rem;
+    pointer-events: none;
     font-family: "Josefin Slab";
     @include respond(tab-port) {
         margin-bottom: 3rem;

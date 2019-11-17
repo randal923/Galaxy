@@ -13,6 +13,13 @@ function gameTimeOut() {
     const gameButton = document.querySelector(".typing-effect__game-button");
     gameButton.disabled = true;
 
+    // Scroll player to top of the page
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+
     // COUNT DOWN
     function countDown() {
         if (gameTimer > 0) {
