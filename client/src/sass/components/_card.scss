@@ -111,6 +111,18 @@
         &--3 {
             background-image: url(assets/galaxy.png);
         }
+        &--4 {
+            background-image: url(assets/ecommerce.png);
+            &:after {
+                content: '';
+                position: absolute;
+                width: 100%; 
+                height:30%;
+                top:0; 
+                left:0;
+                background:rgba(0,0,0,0.6);
+            }
+        }
     }
     &__details {
         display: flex;
